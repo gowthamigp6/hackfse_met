@@ -1,0 +1,5 @@
+FROM amazoncorretto:8
+ENV SPRING_PROFILE=aws
+ADD target/authservice-1.0-spring-boot.jar authservice.jar
+ENTRYPOINT ["java","-Dspring.profiles.active=${SPRING_PROFILE}","-jar", "/authservice.jar"]
+EXPOSE 8761
