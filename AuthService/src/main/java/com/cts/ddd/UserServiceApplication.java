@@ -21,13 +21,14 @@ public class UserServiceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		User user = new User("admin", "password", "admin", "Gowthami");
+		String security="Welcome";
+		User user = new User("admin", security, "admin", "Gowthami");
 		userService.addUser(user);
 		
-		user = new User("user01", "password", "user","User1");
+		user = new User("user01", security, "user","User1");
 		userService.addUser(user);
 		
-		user = new User("user02", "password", "user", "User2");
+		user = new User("user02", security, "user", "User2");
 		userService.addUser(user);
 	}
 }

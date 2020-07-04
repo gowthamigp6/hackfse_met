@@ -41,7 +41,6 @@ public class JpaUserRepositoryImpl implements UserRepository{
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		System.out.println("------------------------------>");
 		Optional<User> userDetails = jpaUserRepository.findById(username);
 		User user=null;
 		
@@ -53,8 +52,6 @@ public class JpaUserRepositoryImpl implements UserRepository{
 						() -> new UsernameNotFoundException("User Not Found with -> username or email : " + username));
 		 }
 		 
-		System.out.println("------------------------------>"+user);
-		System.out.println("------------------------------>"+UserPrinciple.build(user));
 		return UserPrinciple.build(user);
 	}
 
