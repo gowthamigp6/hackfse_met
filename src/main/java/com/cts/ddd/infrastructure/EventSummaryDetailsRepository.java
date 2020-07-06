@@ -1,4 +1,4 @@
-package com.cts.feedback.repository;
+package com.cts.ddd.infrastructure;
 
 import java.util.List;
 

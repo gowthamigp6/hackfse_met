@@ -1,4 +1,4 @@
-package com.cts.feedback.service.impl;
+package com.cts.ddd.application.impl;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.cts.ddd.application.EventSummaryDetailsService;
+import com.cts.ddd.infrastructure.EventSummaryDetailsRepository;
+import com.cts.ddd.utils.FeedbackConstants;
 import com.cts.feedback.event.EventSummaryDetails;
-import com.cts.feedback.repository.EventSummaryDetailsRepository;
-import com.cts.feedback.repository.UserEventRegistrationRepository;
-import com.cts.feedback.service.EventSummaryDetailsService;
-import com.cts.feedback.utils.FeedbackConstants;
+
 
 @Service
 @Transactional
@@ -19,8 +19,6 @@ public class EventSummaryDetailsServiceImpl implements EventSummaryDetailsServic
 	@Autowired
 	private EventSummaryDetailsRepository eventRepository;
 	
-	@Autowired
-	private UserEventRegistrationRepository userEventRegistrationRepository;
 	
 	@Override
 	public List<EventSummaryDetails> getEventSummaryDetails() {
@@ -28,8 +26,8 @@ public class EventSummaryDetailsServiceImpl implements EventSummaryDetailsServic
 	}
 
 	@Override
-	public void saveEventSummaryDetails(EventSummaryDetails userEventRegistration) {
-		eventRepository.save(userEventRegistration);
+	public EventSummaryDetails saveEventSummaryDetails(EventSummaryDetails userEventRegistration) {
+		return eventRepository.save(userEventRegistration);
 	}
 
 }

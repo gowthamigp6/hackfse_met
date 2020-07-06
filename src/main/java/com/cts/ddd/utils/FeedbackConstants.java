@@ -1,4 +1,4 @@
-package com.cts.feedback.utils;
+package com.cts.ddd.utils;
 
 public class FeedbackConstants {
 
