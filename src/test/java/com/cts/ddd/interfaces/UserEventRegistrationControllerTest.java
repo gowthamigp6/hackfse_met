@@ -27,6 +27,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.cts.ddd.application.EmailTemplateService;
 import com.cts.ddd.infrastructure.EventSummaryDetailsRepository;
 import com.cts.ddd.infrastructure.UserEventRegistrationRepository;
 import com.cts.ddd.utils.FeedbackConstants;
@@ -53,6 +54,8 @@ public class UserEventRegistrationControllerTest {
 
 	@MockBean
 	private EventSummaryDetailsRepository eventSummaryDetailsRepository;
+	
+	@MockBean EmailTemplateService emailTemplateService;
 
 	@Before
 	public void setUp() throws Exception {
