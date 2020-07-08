@@ -1,4 +1,4 @@
-package com.cts.ddd.userinterface;
+package com.cts.ddd.eventinterface;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
