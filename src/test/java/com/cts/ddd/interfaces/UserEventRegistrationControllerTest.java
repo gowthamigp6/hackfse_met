@@ -55,7 +55,8 @@ public class UserEventRegistrationControllerTest {
 	@MockBean
 	private EventSummaryDetailsRepository eventSummaryDetailsRepository;
 	
-	@MockBean EmailTemplateService emailTemplateService;
+	@MockBean 
+	private EmailTemplateService emailTemplateService;
 
 	@Before
 	public void setUp() throws Exception {

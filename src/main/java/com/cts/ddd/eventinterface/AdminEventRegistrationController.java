@@ -1,5 +1,6 @@
 package com.cts.ddd.eventinterface;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import com.cts.ddd.application.EventSummaryDetailsService;
 import com.cts.ddd.application.UserEventRegistrationService;
 import com.cts.feedback.event.EventSummaryDetails;
 import com.cts.feedback.event.UserEventRegistration;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @CrossOrigin(allowedHeaders = "*", origins = "*")
 @RestController
@@ -68,10 +70,15 @@ public class AdminEventRegistrationController {
 		}
 	}
 	
+	public List<EventSummaryDetails> fallback() {
+		return new ArrayList<>();
+	}
+	
 	/**
 	 * View all the created event details
 	 * @return
 	 */
+	@HystrixCommand(fallbackMethod = "fallback")
 	@GetMapping(value = "/eventDetails/getEventDetails", headers = "Accept=application/json")
 	public @ResponseBody List<EventSummaryDetails> getSummaryEventDetails() {
 		return eventSummaryDetailsService.getEventSummaryDetails();

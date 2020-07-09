@@ -35,7 +35,6 @@ public class EmailTemplateServiceImpl implements EmailTemplateService {
 	}
 
 	private void sendEmail(List<UserEventRegistration> regList) {
-		System.out.println(regList);
 		for (UserEventRegistration reg : regList) {
 
 			SimpleMailMessage message = new SimpleMailMessage();

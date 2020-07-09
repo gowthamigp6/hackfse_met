@@ -3,6 +3,7 @@ package com.cts.ddd.eventinterface;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cts.ddd.application.UserEventRegistrationService;
 import com.cts.feedback.event.UserEventRegistration;
 
-
+@RibbonClient(name = "trip-service")
 @CrossOrigin(allowedHeaders = "*", origins = "*")
 @RestController
 public class UserEventRegistrationController {
